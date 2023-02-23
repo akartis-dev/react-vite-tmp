@@ -1,3 +1,4 @@
+import { AppContext } from "hooks/appContext";
 import { useState } from "react";
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
@@ -9,7 +10,9 @@ const store = configureAppStore();
 function App() {
   return (
     <Provider store={store}>
-      <RouterProvider router={appRoute} />
+      <AppContext.Provider value={{}}>
+        <RouterProvider router={appRoute} />
+      </AppContext.Provider>
     </Provider>
   );
 }
